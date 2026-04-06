@@ -18,18 +18,13 @@ FinSight is a sophisticated, high-end finance management application designed fo
 - **Smart Filters:** Powerful filtering by Type (Income/Expense), Category, and Date range, optimized for all screen sizes.
 - **Admin Control:** Toggable Admin vs. Viewer roles. Admins have full CRUD (Create, Read, Update, Delete) capability with a dedicated Floating Action Button (FAB) on mobile.
 
-### 3. **Manual Sync & Export (No Server Required)**
-- **Cloud Sync (Manual):** Cross-device synchronization via JSON Import/Export. Move your data between your PC and phone with one click.
-- **Format Options:** Export your transaction history in high-quality CSV (Spreadsheet) or JSON formats.
-- **Persistent Storage:** All data is saved securely in your browser's local storage, ensuring your dashboard is yours alone.
-
-### 4. **Professional UI/UX**
+### 3. **Professional UI/UX**
 - **Responsive Navigation:** Sophisticated Sidebar for mobile/tablet with an integrated Role Switcher (Viewer/Admin) that intelligently hides on desktop to avoid redundancy.
 - **Premium Aesthetics:** Vibrant gradients, glassmorphism effects, smooth Framer Motion animations, and curated typography (Inter).
 - **Privacy Mode:** One-click "Eye" toggle to blur sensitive financial figures for use in public.
 - **Dynamic Theming:** Seamless "Light" and "Dark" mode switching for day or night use.
 
-### 5. **Ask FinSight AI**
+### 4. **Ask FinSight AI**
 - **Intelligent Assistant:** A built-in chatbot with a dedicated floating icon. 
 - **Contextual Help:** Ask questions about your spending trends or get help navigating the features.
 
