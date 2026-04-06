@@ -14,7 +14,7 @@ const itemVariants = {
 };
 
 const Settings = () => {
-  const { role, setRole, theme, toggleTheme, currency, setCurrency, user, setUser } = useDashboard();
+  const { role, setRole, theme, toggleTheme, currency, setCurrency, user, setUser, monthlyGoal, setMonthlyGoal } = useDashboard();
 
   // Profile edit modal state
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -77,18 +77,18 @@ const Settings = () => {
           <h2 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <User size={20} color="var(--primary)" /> Profile
           </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'linear-gradient(135deg, var(--primary), #6366f1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1.5rem', fontWeight: 700, flexShrink: 0 }}>
               {initials}
             </div>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: '1 1 200px', textAlign: 'left' }}>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>{user.name}</h3>
               <p style={{ color: 'var(--text-muted)', marginBottom: '0.5rem' }}>{user.email}</p>
               <span style={{ display: 'inline-flex', padding: '0.2rem 0.75rem', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, backgroundColor: role === 'Admin' ? 'rgba(59,130,246,0.15)' : 'var(--success-bg)', color: role === 'Admin' ? 'var(--primary)' : 'var(--success-text)' }}>
                 {role}
               </span>
             </div>
-            <button className="btn btn-outline" onClick={() => { setEditForm({ name: user.name, email: user.email }); setIsEditOpen(true); }}>
+            <button className="btn btn-outline" style={{ width: 'auto', minWidth: '120px' }} onClick={() => { setEditForm({ name: user.name, email: user.email }); setIsEditOpen(true); }}>
               Edit Profile
             </button>
           </div>
@@ -102,17 +102,17 @@ const Settings = () => {
           <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1.5rem' }}>
             Switch between Viewer and Admin to test permission-based features. Admins can add, edit, and delete transactions.
           </p>
-          <div style={{ display: 'flex', gap: '1rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button
               className={`btn ${role === 'Viewer' ? 'btn-primary' : 'btn-outline'}`}
-              style={{ flex: 1 }}
+              style={{ flex: '1 1 120px' }}
               onClick={() => setRole('Viewer')}
             >
               Viewer
             </button>
             <button
               className={`btn ${role === 'Admin' ? 'btn-primary' : 'btn-outline'}`}
-              style={{ flex: 1 }}
+              style={{ flex: '1 1 120px' }}
               onClick={() => setRole('Admin')}
             >
               Admin
@@ -139,7 +139,7 @@ const Settings = () => {
             </div>
 
             {/* Currency */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '1.25rem', borderBottom: '1px solid var(--border-color)', flexWrap: 'wrap', gap: '1rem' }}>
               <div>
                 <p style={{ fontWeight: 600 }}>Currency</p>
                 <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Applies immediately across all pages.</p>
@@ -147,14 +147,31 @@ const Settings = () => {
               <select
                 value={currency}
                 onChange={e => setCurrency(e.target.value)}
-                style={{ cursor: 'pointer', minWidth: '140px', fontWeight: 600 }}
+                style={{ cursor: 'pointer', minWidth: '140px', fontWeight: 600, padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'var(--bg-color)', color: 'var(--text-main)' }}
               >
-                <option value="USD">USD — US Dollar ($)</option>
-                <option value="EUR">EUR — Euro (€)</option>
-                <option value="GBP">GBP — British Pound (£)</option>
-                <option value="INR">INR — Indian Rupee (₹)</option>
-                <option value="JPY">JPY — Japanese Yen (¥)</option>
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="JPY">JPY (¥)</option>
               </select>
+            </div>
+
+            {/* Monthly Budget Setting */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+              <div>
+                <p style={{ fontWeight: 600 }}>Monthly Spending Goal</p>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Set a limit to receive spending alerts.</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontWeight: 500, color: 'var(--text-muted)' }}>{currency === 'INR' ? '₹' : '$'}</span>
+                <input
+                  type="number"
+                  value={monthlyGoal}
+                  onChange={e => setMonthlyGoal(Number(e.target.value))}
+                  style={{ width: '120px', padding: '0.5rem 0.75rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'var(--bg-color)', color: 'var(--text-main)', fontWeight: 600, outline: 'none' }}
+                />
+              </div>
             </div>
           </div>
         </motion.div>

@@ -86,13 +86,13 @@ const Insights = () => {
           
           {/* Highest Spending */}
           <motion.div 
-            className="card" 
+            className="card stack-on-mobile" 
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             whileHover={{ y: -4, boxShadow: 'var(--shadow-lg)' }}
             transition={{ type: 'spring', stiffness: 300, damping: 24 }}
             style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
           >
-            <div style={{ padding: '0.75rem', borderRadius: '50%', backgroundColor: 'rgba(239, 68, 68, 0.15)', color: 'var(--danger)' }}>
+            <div style={{ width: '3rem', height: '3rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: 'rgba(239, 68, 68, 0.15)', color: 'var(--danger)' }}>
               <TrendingDown size={24} />
             </div>
             <div>
@@ -109,13 +109,13 @@ const Insights = () => {
           {/* Monthly Comparison */}
           {insightsData.monthlyComparison && (
             <motion.div 
-              className="card" 
+              className="card stack-on-mobile" 
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
               whileHover={{ y: -4, boxShadow: 'var(--shadow-lg)' }}
               transition={{ type: 'spring', stiffness: 300, damping: 24 }}
               style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
             >
-              <div style={{ padding: '0.75rem', borderRadius: '50%', backgroundColor: insightsData.monthlyComparison.isBetter ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)', color: insightsData.monthlyComparison.isBetter ? 'var(--success)' : 'var(--danger)' }}>
+              <div style={{ width: '3rem', height: '3rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: insightsData.monthlyComparison.isBetter ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)', color: insightsData.monthlyComparison.isBetter ? 'var(--success)' : 'var(--danger)' }}>
                 {insightsData.monthlyComparison.isBetter ? <TrendingUp size={24} /> : <AlertCircle size={24} />}
               </div>
               <div>
@@ -134,13 +134,13 @@ const Insights = () => {
           {/* Largest Transaction */}
           {insightsData.largestExpense && (
             <motion.div 
-              className="card" 
+              className="card stack-on-mobile" 
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
               whileHover={{ y: -4, boxShadow: 'var(--shadow-lg)' }}
               transition={{ type: 'spring', stiffness: 300, damping: 24 }}
               style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
             >
-              <div style={{ padding: '0.75rem', borderRadius: '50%', backgroundColor: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b' }}>
+              <div style={{ width: '3rem', height: '3rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b' }}>
                 <Award size={24} />
               </div>
               <div>
@@ -149,7 +149,7 @@ const Insights = () => {
                   {insightsData.largestExpense.category}
                 </h3>
                 <p style={{ fontSize: '0.875rem' }}>
-                  Your biggest single purchase was <strong>{formatCurrency(insightsData.largestExpense.amount)}</strong> on {insightsData.largestExpense.date}.
+                  Your biggest single purchase was <strong style={{ color: 'var(--danger)' }}>{formatCurrency(insightsData.largestExpense.amount)}</strong> on {insightsData.largestExpense.date}.
                 </p>
               </div>
             </motion.div>
@@ -163,7 +163,7 @@ const Insights = () => {
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
             style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', gridColumn: '1 / -1', background: 'linear-gradient(to right, var(--bg-surface), rgba(59, 130, 246, 0.05))', borderColor: 'var(--primary)' }}
           >
-            <div style={{ padding: '0.75rem', borderRadius: '50%', backgroundColor: 'var(--primary)', color: 'white' }}>
+            <div style={{ width: '3rem', height: '3rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: 'var(--primary)', color: 'white' }}>
               <Lightbulb size={24} />
             </div>
             <div>
