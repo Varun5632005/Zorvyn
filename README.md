@@ -1,4 +1,4 @@
-# 💎 FinSight Hub – Premium Finance Dashboard
+# FinSight Hub – Premium Finance Dashboard
 
 **Live Demo:** [https://finsight-hub.netlify.app](https://finsight-hub.netlify.app)
 
